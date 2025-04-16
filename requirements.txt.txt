@@ -1,0 +1,12 @@
+streamlit
+pandas
+numpy
+joblib
+scikit-learn
+shap
+matplotlib
+requests
+opencv-python-headless
+pyzbar
+Pillow
+streamlit-webrtc
