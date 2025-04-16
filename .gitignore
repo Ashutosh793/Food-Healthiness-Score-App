@@ -1,0 +1,9 @@
+# Ignore model files
+*.pkl
+
+# Ignore temp/system files
+__pycache__/
+*.pyc
+*.log
+*.DS_Store
+.env
