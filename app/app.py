@@ -8,7 +8,6 @@ import requests
 import os
 from PIL import Image
 import gdown
-from pyzbar.pyzbar import decode
 
 # ========== Download Models from Google Drive ==========
 def download_from_gdrive(file_id, output_path):
@@ -39,21 +38,8 @@ barcode = st.text_input("🔢 Enter barcode manually")
 st.subheader("🖼️ Upload Barcode Image")
 uploaded = st.file_uploader("Upload an image of a barcode")
 
-if uploaded:
-    if uploaded.type.startswith("image/"):
-        try:
-            image = Image.open(uploaded)
-            decoded = decode(image)
-            if decoded:
-                scanned_code = decoded[0].data.decode("utf-8")
-                st.success(f"🧾 Detected from image: {scanned_code}")
-                barcode = scanned_code
-            else:
-                st.warning("⚠️ No barcode detected in the image.")
-        except Exception as e:
-            st.error(f"❌ Failed to process image: {e}")
-    else:
-        st.error("❌ Please upload a valid image file.")
+st.warning("📤 Barcode image scanning is disabled in this cloud version. Please use manual barcode entry.")
+
 
 # ========== Barcode API Lookup ==========
 if barcode:
